@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 <html>
         <!-- 
-		CREATE TABLE myapplicants (
-           id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-           Nome VARCHAR(30) NOT NULL,
-           Cognome VARCHAR(30) NOT NULL,
-           Email VARCHAR(50) NOT NULL,
-           Telefono INT(11) NOT NULL,
+	   CREATE TABLE myapplicants (
+               id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+               Nome VARCHAR(30) NOT NULL,
+               Cognome VARCHAR(30) NOT NULL,
+               Email VARCHAR(50) NOT NULL,
+               Telefono INT(11) NOT NULL,
 	       Età DATE NOT NULL,
 	       Titolo_di_Studio VARCHAR(30) NOT NULL,
 	       Poizione_Lavorativa VARCHAR(30) NOT NULL,
 	       Sede_Lavorativa VARCHAR(30) NOT NULL,
 	       CV LONGBLOB (o varbinary)
-        ); -->
+           ); -->
 <style>
 table, th, td {
   border:1px solid black;
@@ -27,18 +27,18 @@ $f2=$f3=$f4a=$f4b='';
 if (!empty($_POST["filtro_età"])) {
    if($_POST["filtro_età"]==18) {
       $f1a = date("Y-m-d",strtotime("-25 year", time()));
-	  $f1b = date("Y-m-d",strtotime("-18 year", time()));
+      $f1b = date("Y-m-d",strtotime("-18 year", time()));
    }
    if($_POST["filtro_età"]==25) {
       $f1a = date("Y-m-d",strtotime("-35 year", time()));
-	  $f1b = date("Y-m-d",strtotime("-25 year", time()));
+      $f1b = date("Y-m-d",strtotime("-25 year", time()));
    }
    if($_POST["filtro_età"]==35) {
       $f1a = date("Y-m-d",strtotime("-45 year", time()));
-	  $f1b = date("Y-m-d",strtotime("-35 year", time()));
+      $f1b = date("Y-m-d",strtotime("-35 year", time()));
    }
    if($_POST["filtro_età"]==45) {
-	  $f1b = date("Y-m-d",strtotime("-45 year", time()));
+      $f1b = date("Y-m-d",strtotime("-45 year", time()));
    }
 }
 if (!empty($_POST["filtro_titolo_studio"])) {
@@ -54,18 +54,19 @@ if (!empty($_POST["filtro_posizione_lavorativa"])) {
 if (!empty($_POST["filtro_sede_lavorativa"])) {
    if ($_POST["filtro_sede_lavorativa"]=="milano") {
       $f4a="roma"; 
-	  $f4b="genova";
+      $f4b="genova";
    }
    if ($_POST["filtro_sede_lavorativa"]=="roma") {
       $f4a="milano"; 
-	  $f4b="genova";
+      $f4b="genova";
    }
    if ($_POST["filtro_sede_lavorativa"]=="genova") {
       $f4a="milano"; 
-	  $f4b="roma";
+      $f4b="roma";
    }
 }
 ?>
+	
 <center><h2>APPLICAZIONE FILTRI</h2></center>
 <form method="post" action="">
 Filtro Età:
@@ -90,6 +91,7 @@ Filtro Sede Lavorativa:
 <input type="submit" name="submit" value="Applica Filtro">
 </form>
 <br><br><br>
+	
 <?php
 $servername = "localhost";
 $username = "root";
@@ -113,6 +115,7 @@ if ($rowcount==0) {
 
 mysqli_close($conn);
 ?>
+	
 <table style="width:100%">
   <tr>
     <th>id</th>
